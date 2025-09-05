@@ -33,19 +33,21 @@ const Header = () => {
   ];
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       isScrolled
-        ? 'bg-gradient-to-r from-white/95 via-cyan-50/95 to-purple-50/95 backdrop-blur-xl shadow-2xl border-b border-cyan-200/50'
-        : 'bg-gradient-to-r from-gray-900/90 via-cyan-900/80 to-purple-900/90 backdrop-blur-lg shadow-xl border-b border-white/10'
+        ? 'bg-gray-900/80 backdrop-blur-md shadow-2xl border-b border-gray-200'
+        : 'bg-gray-900/80 backdrop-blur-sm shadow-lg' // Distinct background when not scrolled
     }`}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <div className="w-16 h-16 rounded-lg flex items-center justify-center">
+            <div className="w-10 h-10 rounded-lg flex items-center justify-center">
               <img src="/logo.png" alt="Chidebru Techs Logo" className="w-full h-full object-contain p-1" />
             </div>
-            <span className="text-xl font-bold gradient-text transition-all duration-300 hover:scale-105">
+            <span className={`${
+              isScrolled ? 'text-white' : 'text-white' // Adjust logo text color based on scroll
+            } text-xl font-bold gradient-text transition-colors`}>
               Chidebru Techs
             </span>
           </Link>
@@ -61,10 +63,10 @@ const Header = () => {
               >
                 <Link
                   to={item.path}
-                  className={`flex items-center space-x-1 transition-all duration-300 hover:text-[#02caf5] hover:-translate-y-0.5 ${ // Enhanced hover effect
+                  className={`flex items-center space-x-1 transition-all duration-300 hover:text-[#02caf5] hover:scale-105 relative ${ // Enhanced hover effect
                     (item.exact ? location.pathname === item.path : location.pathname.startsWith(item.path)) // Check for active path
-                      ? 'text-[#02caf5] font-bold' // Active link style
-                      : isScrolled ? 'text-gray-700' : 'text-white' // Default link style based on scroll
+                      ? 'text-[#02caf5] font-bold border-b-2 border-[#02caf5] pb-1' // Enhanced active link style
+                      : isScrolled ? 'text-white' : 'text-white' // Default link style based on scroll
                   }`}
                 >
                   <span>{item.label}</span>
@@ -100,7 +102,9 @@ const Header = () => {
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className={`lg:hidden p-2 rounded-lg transition-all duration-300 hover:scale-110 ${
-              isScrolled ? 'text-gray-700 hover:bg-cyan-100' : 'text-white hover:bg-white/20'
+              isScrolled 
+                ? 'v hover:bg-gray-100' 
+                : 'text-white hover:bg-white/10'
             }`}
           >
             {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -109,15 +113,16 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="lg:hidden absolute top-full left-0 right-0 bg-white shadow-lg rounded-b-lg">
+          <div className="lg:hidden absolute top-full left-0 right-0 bg-white shadow-2xl rounded-b-lg border-b border-gray-200">
             <nav className="flex flex-col space-y-1 p-4">
               {navItems.map((item, index) => (
                 <div key={index}>
                   <Link
                     to={item.path}
-                    className={`block px-4 py-3 rounded-lg transition-colors ${
+                    className={`block px-4 py-3 rounded-lg transition-all duration-300 transform hover:scale-105 ${
                       (item.exact ? location.pathname === item.path : location.pathname.startsWith(item.path))
-                        ? 'bg-cyan-50 text-[#02caf5] font-semibold' : 'text-gray-700 hover:bg-cyan-50 hover:text-[#02caf5]'
+                        ? 'bg-gradient-to-r from-cyan-50 to-purple-50 text-[#02caf5] font-semibold border-l-4 border-[#02caf5]' 
+                        : 'text-gray-700 hover:bg-gradient-to-r hover:from-cyan-50 hover:to-purple-50 hover:text-[#02caf5]'
                     }`}
                     onClick={() => setIsMenuOpen(false)}
                   >
@@ -129,8 +134,10 @@ const Header = () => {
                         <Link
                           key={dropIndex}
                           to={dropdownItem.path}
-                         className={`block px-4 py-2 text-sm rounded-lg transition-colors ${
-                           location.pathname === dropdownItem.path ? 'bg-cyan-50 text-[#02caf5] font-semibold' : 'text-gray-600 hover:bg-cyan-50 hover:text-[#02caf5]'
+                         className={`block px-4 py-2 text-sm rounded-lg transition-all duration-300 transform hover:scale-105 ${
+                           location.pathname === dropdownItem.path 
+                             ? 'bg-gradient-to-r from-cyan-50 to-purple-50 text-[#02caf5] font-semibold border-l-2 border-[#02caf5]' 
+                             : 'text-gray-600 hover:bg-gradient-to-r hover:from-cyan-50 hover:to-purple-50 hover:text-[#02caf5]'
                          }`}
                           onClick={() => setIsMenuOpen(false)}
                         >
@@ -143,7 +150,7 @@ const Header = () => {
               ))}
               <Link
                 to="/contact"
-               className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-[#02caf5] to-[#ce0aff] text-white rounded-lg font-medium hover:from-[#0299c7] hover:to-[#a308cc] transition-all mt-4"
+               className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-[#02caf5] to-[#ce0aff] text-white rounded-lg font-medium hover:from-[#0299c7] hover:to-[#a308cc] transition-all transform hover:scale-105 shadow-lg hover:shadow-xl mt-4"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Get In Touch
