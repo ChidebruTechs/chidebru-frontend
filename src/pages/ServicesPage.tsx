@@ -2,6 +2,8 @@ import React from 'react';
 import { Award, ShoppingBag, BarChart, BookOpen, Megaphone, Binary, CreditCard, Smartphone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { services } from '../data/servicesData';
+import { Helmet } from 'react-helmet-async';
+
 
 const Services = () => {
   // Icon mapping
@@ -78,7 +80,47 @@ const Services = () => {
 };
 
 const ServicesPage = () => {
-  return <Services />;
+  return (
+    <>
+      <Helmet>
+        <title>Digital Services - Web Design, Development & Marketing | Chidebru Techs</title>
+        <meta 
+          name="description" 
+          content="Comprehensive digital services including web design, web development, branding, logo design, content writing, digital marketing, custom software, e-commerce solutions, and mobile app development in Kisumu, Kenya." 
+        />
+        <meta name="keywords" content="web design services, web development, digital marketing, branding services, logo design, content writing, SEO, custom software, e-commerce, mobile app development, Kisumu Kenya" />
+        <meta property="og:title" content="Digital Services - Web Design, Development & Marketing" />
+        <meta property="og:description" content="Comprehensive digital services including web design, web development, branding, and digital marketing." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://chidebrutechs.com/services" />
+        <link rel="canonical" href="https://chidebrutechs.com/services" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "provider": {
+              "@type": "Organization",
+              "name": "Chidebru Techs"
+            },
+            "serviceType": [
+              "Web Design",
+              "Web Development", 
+              "Digital Marketing",
+              "Branding and Logo Design",
+              "Content Writing",
+              "Custom Software Development",
+              "E-Commerce Solutions",
+              "Mobile App Development"
+            ],
+            "areaServed": {
+              "@type": "Country",
+              "name": "Kenya"
+            }
+          })}
+        </script>
+      </Helmet>
+      <Services />
+    </>
+  );
 };
-
 export default ServicesPage;

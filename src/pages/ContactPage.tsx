@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -217,7 +218,50 @@ const Contact = () => {
 };
 
 const ContactPage = () => {
-  return <Contact />;
+  return (
+    <>
+      <Helmet>
+        <title>Contact Chidebru Techs - Get Your Digital Project Started Today</title>
+        <meta 
+          name="description" 
+          content="Contact Chidebru Techs for your digital needs. Located in Kisumu, Kenya. Call +254 795712677 or email chidebrutechs@gmail.com. Open Monday-Friday 8:00AM-5:00PM. Get your free consultation today!" 
+        />
+        <meta name="keywords" content="contact chidebru techs, digital agency Kisumu, web design consultation, get quote, Ondiek Highway Kisumu" />
+        <meta property="og:title" content="Contact Chidebru Techs - Get Your Digital Project Started" />
+        <meta property="og:description" content="Contact Chidebru Techs for your digital needs. Located in Kisumu, Kenya. Get your free consultation today!" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://chidebrutechs.com/contact" />
+        <link rel="canonical" href="https://chidebrutechs.com/contact" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ContactPage",
+            "mainEntity": {
+              "@type": "Organization",
+              "name": "Chidebru Techs",
+              "telephone": "+254795712677",
+              "email": "chidebrutechs@gmail.com",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Ondiek Highway",
+                "addressLocality": "Kisumu",
+                "addressCountry": "Kenya"
+              },
+              "openingHours": "Mo-Fr 08:00-17:00",
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+254795712677",
+                "contactType": "customer service",
+                "email": "chidebrutechs@gmail.com",
+                "availableLanguage": "English"
+              }
+            }
+          })}
+        </script>
+      </Helmet>
+      <Contact />
+    </>
+  );
 };
 
 export default ContactPage;

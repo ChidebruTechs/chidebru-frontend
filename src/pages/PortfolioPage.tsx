@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ExternalLink, ZoomIn } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const Portfolio = () => {
   const [activeFilter, setActiveFilter] = useState('*');
@@ -234,7 +235,46 @@ const Portfolio = () => {
 };
 
 const PortfolioPage = () => {
-  return <Portfolio />;
+  return (
+    <>
+      <Helmet>
+        <title>Portfolio - Our Digital Projects & Success Stories | Chidebru Techs</title>
+        <meta 
+          name="description" 
+          content="Explore our portfolio of successful digital projects including websites for Tower Arts Enterprises, AUTTA Kenya, logo designs, web designs, and branding work. See our expertise in action." 
+        />
+        <meta name="keywords" content="portfolio, web design portfolio, logo design examples, website projects, Tower Arts Enterprises, AUTTA Kenya, digital marketing projects" />
+        <meta property="og:title" content="Portfolio - Our Digital Projects & Success Stories" />
+        <meta property="og:description" content="Explore our portfolio of successful digital projects including websites, logo designs, and branding work." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://chidebrutechs.com/portfolio" />
+        <link rel="canonical" href="https://chidebrutechs.com/portfolio" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "CreativeWork",
+            "name": "Chidebru Techs Portfolio",
+            "description": "Portfolio showcasing digital projects and success stories",
+            "creator": {
+              "@type": "Organization",
+              "name": "Chidebru Techs"
+            },
+            "workExample": [
+              {
+                "@type": "WebSite",
+                "name": "Tower Arts Enterprises",
+                "url": "https://towerartsenterprises.com/"
+              },
+              {
+                "@type": "CreativeWork",
+                "name": "AUTTA Kenya Website Design"
+              }
+            ]
+          })}
+        </script>
+      </Helmet>
+      <Portfolio />
+    </>
+  );
 };
-
 export default PortfolioPage;

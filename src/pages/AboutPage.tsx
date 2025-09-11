@@ -1,5 +1,6 @@
 import React from 'react';
 import { Target, Eye, Lightbulb, TrendingUp, Twitter, Facebook, Instagram, Linkedin} from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 
 const About = () => {
   const features = [
@@ -248,6 +249,46 @@ const Team = () => {
 const AboutPage = () => {
   return (
     <>
+      <Helmet>
+        <title>About Chidebru Techs - Expert Digital Solutions Team | Our Story & Mission</title>
+        <meta 
+          name="description" 
+          content="Learn about Chidebru Techs - your reliable partner for digital success. Meet our expert team of 15+ professionals led by Deusdarius Chimoyi. Trusted by 9+ clients including Sunset Hotel, Tower Arts, Western Computers..." 
+        />
+        <meta name="keywords" content="about chidebru techs, digital agency team, web development company, Deusdarius Chimoyi, Martin Mutukoh, Kisumu Kenya" />
+        <meta property="og:title" content="About Chidebru Techs - Expert Digital Solutions Team" />
+        <meta property="og:description" content="Learn about Chidebru Techs - your reliable partner for digital success. Meet our expert team of 15+ professionals." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://chidebrutechs.com/about" />
+        <link rel="canonical" href="https://chidebrutechs.com/about" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "AboutPage",
+            "mainEntity": {
+              "@type": "Organization",
+              "name": "Chidebru Techs",
+              "founder": {
+                "@type": "Person",
+                "name": "Deusdarius Chimoyi",
+                "jobTitle": "Founder & CEO"
+              },
+              "employee": [
+                {
+                  "@type": "Person",
+                  "name": "CPA Kevin Ouma",
+                  "jobTitle": "Chief Operations Officer (COO)"
+                },
+                {
+                  "@type": "Person",
+                  "name": "Martin Mutukoh",
+                  "jobTitle": "Chief Technology Officer (CTO)"
+                }
+              ]
+            }
+          })}
+        </script>
+      </Helmet>
       <About />
       <Team />
     </>

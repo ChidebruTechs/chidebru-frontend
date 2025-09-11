@@ -1,9 +1,9 @@
 import React from 'react';
-import { ArrowRight, Play, Award, BarChart, Megaphone, BookOpen } from 'lucide-react';
+import { ArrowRight, Play, Award, BarChart, Megaphone, BookOpen, ChevronDown, ChevronUp } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { ChevronDown, ChevronUp } from 'lucide-react';
 import { useState } from 'react';
 import FeaturesSection from '../components/FeaturesSection';
+import { Helmet } from 'react-helmet-async';
 
 const Hero = () => {
   return (
@@ -341,10 +341,55 @@ const FAQ = () => {
 const HomePage = () => {
   return (
     <>
+      <Helmet>
+        <title>Chidebru Techs - Your One-Stop Digital Solution | Web Design, Development & Digital Marketing</title>
+        <meta 
+          name="description" 
+          content="Empowering SMEs with comprehensive digital solutions. From branding, web design and web development to digital marketing. 9+ clients, 8+ projects, 2624+ hours support. Get started today!" 
+        />
+        <meta name="keywords" content="web design, web development, digital marketing, branding, logo design, content writing, SEO, Kisumu, Kenya" />
+        <meta name="author" content="Chidebru Techs" />
+        <meta property="og:title" content="Chidebru Techs - Your One-Stop Digital Solution" />
+        <meta property="og:description" content="Empowering SMEs with comprehensive digital solutions. From branding, web design and web development to digital marketing." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://chidebrutechs.com" />
+        <meta property="og:image" content="https://images.pexels.com/photos/3861972/pexels-photo-3861972.jpeg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Chidebru Techs - Your One-Stop Digital Solution" />
+        <meta name="twitter:description" content="Empowering SMEs with comprehensive digital solutions. From branding, web design and web development to digital marketing." />
+        <meta name="twitter:image" content="https://images.pexels.com/photos/3861972/pexels-photo-3861972.jpeg" />
+        <link rel="canonical" href="https://chidebrutechs.com" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Chidebru Techs",
+            "description": "Your One-Stop Digital Solution",
+            "url": "https://chidebrutechs.com",
+            "logo": "https://chidebrutechs.com/logo.png",
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+254795712677",
+              "contactType": "customer service",
+              "email": "chidebrutechs@gmail.com"
+            },
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Ondiek Highway",
+              "addressLocality": "Kisumu",
+              "addressCountry": "Kenya"
+            },
+            "sameAs": [
+              "https://x.com/chidebru",
+              "https://www.facebook.com/ChidebruTechs/",
+              "https://www.instagram.com/chidebrutechs/",
+              "https://www.linkedin.com/company/chidebru-techs/"
+            ]
+          })}
+        </script>
+      </Helmet>
       <Hero />
-      <TrustedBy />
       <FeaturesSection />
-      <KeyServices />
       <FAQ />
     </>
   );
