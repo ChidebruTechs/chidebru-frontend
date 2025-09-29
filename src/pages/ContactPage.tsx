@@ -17,9 +17,6 @@ const Contact = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
     
     // Simulate form submission
     await new Promise(resolve => setTimeout(resolve, 2000));
@@ -125,7 +122,7 @@ const Contact = () => {
               Send us a Message
             </h3>
             
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form target="_blank" action="https://formsubmit.co/chidebrutechs@email.com" method="POST" className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
