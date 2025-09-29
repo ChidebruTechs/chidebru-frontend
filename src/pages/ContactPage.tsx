@@ -10,23 +10,21 @@ const Contact = () => {
     subject: '',
     message: ''
   });
-  const [isSubmitting, setIsSubmitting] = useState(true);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    // Reset form
-    setFormData({ name: '', email: '', subject: '', message: '' });
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     setIsSubmitting(true);
-    
-    // Show success message (you can implement a toast notification here)
-    alert('Message sent successfully! We\'ll get back to you soon.');
+    // Allow the form to submit to the external service, then reset
+    setTimeout(() => {
+      setFormData({ name: '', email: '', subject: '', message: '' });
+      setIsSubmitting(false);
+      alert('Message sent successfully! We\'ll get back to you soon.');
+    }, 1000);
   };
 
   const contactInfo = [
@@ -121,8 +119,13 @@ const Contact = () => {
             <h3 className="text-2xl font-bold text-gray-900 mb-6">
               Send us a Message
             </h3>
-            
-            <form target="_blank" action="https://formsubmit.co/chidebrutechs@email.com" method="POST" className="space-y-6">
+            <form
+              target="_blank"
+              action="https://formsubmit.co/chidebrutechs@gmail.com"
+              method="POST"
+              className="space-y-6"
+              onSubmit={handleSubmit}
+            >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
