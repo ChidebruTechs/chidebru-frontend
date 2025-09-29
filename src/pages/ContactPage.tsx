@@ -10,7 +10,7 @@ const Contact = () => {
     subject: '',
     message: ''
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(true);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -23,7 +23,7 @@ const Contact = () => {
     
     // Reset form
     setFormData({ name: '', email: '', subject: '', message: '' });
-    setIsSubmitting(false);
+    setIsSubmitting(true);
     
     // Show success message (you can implement a toast notification here)
     alert('Message sent successfully! We\'ll get back to you soon.');
