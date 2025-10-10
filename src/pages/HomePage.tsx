@@ -60,7 +60,7 @@ const Hero = () => {
               <div className="text-xs sm:text-sm text-gray-300">Hours Support</div>
             </div>
             <div className="text-center p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10">
-              <div className="text-2xl sm:text-3xl font-bold text-white mb-1">15+</div>
+              <div className="text-2xl sm:text-3xl font-bold text-white mb-1">10+</div>
               <div className="text-xs sm:text-sm text-gray-300">Team Members</div>
             </div>
           </div>
@@ -91,8 +91,8 @@ const Hero = () => {
 
 const TrustedBy = () => {
   const clients = [
-    'Tower Arts Enterprises', 'Sunset Hotel Kisumu', 'Western Computers', 'Usawa Quest', 
-    'City of Hope Worship Center', 'GRise System Solutions', 'ManageMate', 'AffordHostel'
+    'Tower Arts Enterprises', 'Sunset Hotel Kisumu', 'Western Computers Kisumu', 'Glodima Marketing Agency', 
+    'City of Hope Worship Center Kisumu', 'ManageMate', 'AffordHostel'
   ];
 
   return (
@@ -285,7 +285,7 @@ const FAQ = () => {
                 Can't find the answer you're looking for? Please reach out to our team.
               </p>
               <Link
-                to="/contact"
+                to="https://wa.me/254795712677/"
                 className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-[#02caf5] to-[#ce0aff] text-white font-semibold rounded-lg hover:from-[#0299c7] hover:to-[#a308cc] transition-all transform hover:scale-105"
               >
                 Get Your Free Consultation

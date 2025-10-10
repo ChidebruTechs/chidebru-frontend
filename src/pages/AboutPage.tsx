@@ -54,8 +54,8 @@ const About = () => {
               <h3 className="text-2xl font-bold text-gray-900 mb-6">Trusted By:</h3>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4 text-center">
                 {[
-    'Tower Arts Enterprises', 'Sunset Hotel Kisumu', 'Western Computers', 'Usawa Quest', 
-    'City of Hope Worship Center', 'GRise System Solutions', 'ManageMate', 'AffordHostel'
+              'Tower Arts Enterprises', 'Sunset Hotel Kisumu', 'Western Computers Kisumu', 'Glodima Marketing Agency', 
+              'City of Hope Worship Center Kisumu', 'ManageMate', 'AffordHostel'
   ].map((client, index) => (
                   <div key={index} className="p-3 bg-white rounded-lg shadow-sm border border-gray-100">
                     <span className="text-sm font-medium text-gray-700">{client}</span>
