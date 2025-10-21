@@ -28,6 +28,7 @@ const Header = () => {
       ]
     },
     { label: 'Services', path: '/services' },
+    { label: 'Blog', path: '/blog' },
     { label: 'Portfolio', path: '/portfolio' },
     { label: 'Contact', path: '/contact' }
   ];

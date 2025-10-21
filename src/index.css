@@ -139,3 +139,48 @@ html {
   animation: pulse-delay 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   animation-delay: 2s;
 }
+
+/* Blog content styling */
+@layer components {
+  .prose {
+    @apply text-gray-700 leading-relaxed;
+  }
+  
+  .prose h2 {
+    @apply text-2xl font-bold text-gray-900 mt-8 mb-4;
+  }
+  
+  .prose h3 {
+    @apply text-xl font-bold text-gray-900 mt-6 mb-3;
+  }
+  
+  .prose p {
+    @apply mb-4 leading-relaxed;
+  }
+  
+  .prose ul {
+    @apply mb-4 pl-6 space-y-2;
+  }
+  
+  .prose li {
+    @apply list-disc;
+  }
+  
+  .prose a {
+    @apply text-[#02caf5] hover:text-[#0299c7] underline;
+  }
+  
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}

@@ -9,6 +9,7 @@ const Footer = () => {
     useful: [
       { label: 'Home', path: '/' },
       { label: 'About us', path: '/about' },
+      { label: 'Blog', path: '/blog' },
       { label: 'Portfolio', path: '/portfolio' },
       { label: 'Contact', path: '/contact' }
     ],
